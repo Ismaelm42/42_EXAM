@@ -1,7 +1,7 @@
 
 #include "ft_printf.h"
 
-void	ft_hexa(char *str, int *counter, unsigned int arg)
+void	ft_hexa(const char *str, int *counter, unsigned int arg)
 {
 	char			hexa[] = "0123456789abcdef";
 	char			c;
@@ -21,7 +21,7 @@ void	ft_hexa(char *str, int *counter, unsigned int arg)
 	}
 }
 
-void	ft_write(int *counter, char *str)
+void	ft_write(int *counter, const char *str)
 {
 	write(1, str, 1);
 	*counter += 1;
@@ -45,7 +45,7 @@ void	ft_pointer(int *counter, unsigned long int arg)
 	}
 }
 
-int	ft_length(char *str, va_list arg)
+int	ft_length(const char *str, va_list arg)
 {
 	int	counter;
 
@@ -82,7 +82,7 @@ int	ft_length(char *str, va_list arg)
 	return (counter);
 }
 
-int	ft_printf(char *str, ...)
+int	ft_printf(const char *str, ...)
 {
 	int		length;
 	va_list	arg;
