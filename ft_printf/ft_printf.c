@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: imoro-sa <imoro-sa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/25 13:17:35 by imoro-sa          #+#    #+#             */
+/*   Updated: 2023/05/25 13:17:36 by imoro-sa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 
 #include "ft_printf.h"
 
@@ -29,8 +41,8 @@ void	ft_write(int *counter, const char *str)
 
 void	ft_pointer(int *counter, unsigned long int arg)
 {
-	char			hexa[] = "0123456789abcdef";
-	char			c;
+	char	hexa[] = "0123456789abcdef";
+	char	c;
 
 	if (arg > 15)
 	{
@@ -50,7 +62,6 @@ int	ft_length(const char *str, va_list arg)
 	int	counter;
 
 	counter = 0;
-	arg = (void *) arg;
 	while (*str != 0)
 	{
 		if (*str == '%')
@@ -76,8 +87,11 @@ int	ft_length(const char *str, va_list arg)
 				ft_write(&counter, str);
 			str++;
 		}
-		ft_write(&counter, str);
-		str++;
+		else
+		{
+			ft_write(&counter, str);
+			str++;
+		}
 	}
 	return (counter);
 }
@@ -95,9 +109,12 @@ int	ft_printf(const char *str, ...)
 
 // int	main(void)
 // {
-// 	//char	str[] = "buenos días";
+// 	//char	str[] = "";
 
-// 	printf("printf length = %d\n\n", printf("printf = %u\n", 354545));
-// 	printf("ft_printf length = %d\n", ft_printf("printf = %u\n", 354545));
+// 	//printf("printf length = %d\n", printf(" %d %d %d %d %d %d %d", 2147483647, -2147483648, 2147483647, -2147483648, 4294967295, 0, -42));
+// 	//printf("\n\n");
+// 	//printf("ft_printf length = %d\n", ft_printf(" %d %d %d %d %d %d %d", 2147483647, -2147483648, 2147483647, -2147483648, 4294967295, 0, -42));
+// 	//printf("%c", '0');
+// 	ft_printf("%c", '0');
 // 	return (0);
 // }
