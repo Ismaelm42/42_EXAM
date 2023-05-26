@@ -85,13 +85,10 @@ int	ft_length(const char *str, va_list arg)
 				ft_unsigned(&counter, va_arg(arg, unsigned int));
 			else
 				ft_write(&counter, str);
-			str++;
 		}
 		else
-		{
 			ft_write(&counter, str);
-			str++;
-		}
+		str++;
 	}
 	return (counter);
 }
